@@ -1,4 +1,4 @@
-#labels Informationsaboutplugin
+#labels Featured
 = Introduction =
 Module to copy/paste Netbeans editor content with formatting to RTF format. 
 
