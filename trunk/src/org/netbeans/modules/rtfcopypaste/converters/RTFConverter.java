@@ -11,7 +11,7 @@ public abstract class RTFConverter {
     protected String createFontTable(
             JEditorPane pane) {
         final StringBuilder sb = new StringBuilder();
-        sb.append("{\\f0 Courier New;}");
+        sb.append("{\\f1 Courier New;}");
 
         return "{\\fonttbl " + sb.toString() + "}";
     }
