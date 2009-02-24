@@ -24,6 +24,15 @@
                     </file>
                 </folder>
             </folder>
+
+            <folder name="x-scala">
+                <folder name="Popup">
+                    <file name="org-netbeans-modules-rtfcopypaste-CopyAsRTFFormat.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-netbeans-modules-rtfcopypaste-CopyAsRTFFormat.instance"/>
+                        <attr name="position" intvalue="2000"/>
+                    </file>
+                </folder>
+            </folder>
             
             <folder name="x-python">
                 <folder name="Popup">
