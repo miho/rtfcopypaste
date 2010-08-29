@@ -4,5 +4,35 @@
 <!-- If you delete this file and reopen the project it will be recreated. -->
 <project name="org.netbeans.modules.rtfcopypaste" default="netbeans" basedir=".">
     <description>Builds, tests, and runs the project org.netbeans.modules.rtfcopypaste.</description>
+  <!--  <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="D:/Programy/apache-ant-1.8.1/lib/ant-contribx.jar"/>
+        </classpath>
+    </taskdef>
+    
+    <target name="-init" depends="suite.-init,init-netbeans,init-hudson">
+        <delete file="${keystore.location}${keystore.name}"/>
+        <mkdir dir="${keystore.location}"/>
+        <genkey alias="${keystore.alias}" storepass="${keystore.password}"
+        dname="${keystore.dname}"
+        keystore="${keystore.location}${keystore.name}"/>
+        <antcall target="update-keystore-info"/>
+    </target>
+
+    <target name="update-keystore-info">
+        <for list="${modules}" delimiter=":" param="cur" trim="true">
+            <sequential>
+                <mkdir dir="@{cur}/nbproject/"/>
+                <propertyfile file="@{cur}/nbproject/project.properties">
+                    <entry  key="keystore" value="../${keystore.location}${keystore.name}"/>
+                    <entry  key="nbm_alias" value="${keystore.alias}"/>
+                </propertyfile>
+                <mkdir dir="@{cur}/nbproject/private/"/>
+                <propertyfile file="@{cur}/nbproject/private/private.properties">
+                    <entry  key="storepass" value="${keystore.password}"/>
+                </propertyfile>
+            </sequential>
+        </for>
+    </target>-->
     <import file="nbproject/build-impl.xml"/>
 </project>
