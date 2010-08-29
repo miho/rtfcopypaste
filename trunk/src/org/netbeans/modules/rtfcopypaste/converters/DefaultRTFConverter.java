@@ -26,7 +26,7 @@ public class DefaultRTFConverter extends RTFConverter {
         if (!positions.containsKey(ID.trim())) {
             tableclr.add(fg);
             positions.put(ID.trim(), new Integer(tableclr.size()));
-            sb.append(colorToRTF(fg) + ";");
+            sb.append(colorToRTF(fg)).append(";");
         }
 
     }
@@ -56,7 +56,7 @@ public class DefaultRTFConverter extends RTFConverter {
         return "{\\colortbl;" + sb.toString() + "}";
     }
 
-    private final void processToken(final Token token,
+    private void processToken(final Token token,
             final FontColorSettings fcs,
             final StringBuilder sb) {
         String tokenrtf = getRtfContent(token.text().toString());
@@ -77,10 +77,10 @@ public class DefaultRTFConverter extends RTFConverter {
             final Color fg = (Color) as.getAttribute(StyleConstants.Foreground);
             if (fg != null) {
                 int pos = positions.get(ID.trim()).intValue();
-                sb.append("{\\cf" + pos + " " + tokenrtf + "}");
+                sb.append("{\\cf").append(pos).append(" ").append(tokenrtf).append("}");
             } else {
                 int pos = 1;
-                sb.append("{\\cf" + pos + " " + tokenrtf + "}");
+                sb.append("{\\cf").append(pos).append(" ").append(tokenrtf).append("}");
             }
 
         }
