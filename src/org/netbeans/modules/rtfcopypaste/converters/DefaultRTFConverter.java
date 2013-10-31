@@ -36,7 +36,7 @@ public class DefaultRTFConverter extends RTFConverter {
         final TokenSequence ts = TokenHierarchy.get(pane.getDocument()).
                 tokenSequence();
         final StringBuilder sb = new StringBuilder();
-        Color foreground = pane.getForeground();
+        Color foreground = (Color) fcs.getTokenFontColors("default").getAttribute(StyleConstants.Foreground);
         processColorToken(foreground, "default", sb);
         ts.move(pane.getSelectionStart());
 

@@ -16,7 +16,7 @@ public class DefaultEditorProfileManager extends EditorProfileManager {
     }
 
     @Override
-    public void setCurrentFontAndColorProfile(String profile) {
+    public void setCurrentFontAndColorProfile(String profile) {       
         EditorSettings.getDefault().setCurrentFontColorProfile(profile);
     }
 }

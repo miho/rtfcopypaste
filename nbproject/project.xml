@@ -12,7 +12,7 @@
                     <compile-dependency/>
                     <run-dependency>
                         <release-version>3</release-version>
-                        <implementation-version/>
+                        <specification-version>3.46.1.22.43</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
