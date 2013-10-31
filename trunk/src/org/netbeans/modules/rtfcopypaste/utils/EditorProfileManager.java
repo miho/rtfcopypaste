@@ -4,7 +4,7 @@ import java.util.Set;
 
 public abstract class EditorProfileManager {
 
-    private static EditorProfileManager manager = new DefaultEditorProfileManager();
+    private static final EditorProfileManager manager = new DefaultEditorProfileManager();
 
     public static EditorProfileManager getDefault() {
         return manager;

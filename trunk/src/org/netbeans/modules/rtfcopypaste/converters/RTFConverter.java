@@ -7,32 +7,36 @@ import org.netbeans.modules.rtfcopypaste.utils.CurrentCopyPasteProfile;
 public abstract class RTFConverter {
 
     public abstract String convertContentToRTF(JEditorPane pane);
+    protected static String eol = System.getProperty("line.separator");
 
     protected String createFontTable(
             JEditorPane pane) {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("{\\f1 Courier New;}");
-
-        return "{\\fonttbl " + sb.toString() + "}";
+        String fonttable = "{\\fonttbl {\\f0 Courier New;}}";
+        return fonttable;
     }
 
     private static String specialReplaceAll(final String oldcontent) {
-        String content = new String(oldcontent);
+        String content = oldcontent;
         String ret = "";
 
         for (char ch : content.toCharArray()) {
-            if (ch == '\\') {
-                ret += "\\\\";
-            } else {
-                ret += ch;
-            }
+            if (ch == '\\') ret += "\\\\";
+            else ret += ch;
         }
         return ret;
     }
 
     public String buildRTF(String fonttable, String colortable, String content) {
         Integer fontsize = CurrentCopyPasteProfile.getCurrentCopyPasteFontSize() * 2;
-        return "{\\rtf1\\ansi\\deff0 " + fonttable + colortable + "\\fs" + fontsize + " " + content + "}";  //TODO fontsize
+        
+        String rtf_string = "{\\rtf1\\ansi\\deff0 " + eol;
+        rtf_string += fonttable + eol;
+        rtf_string += colortable + eol;
+        rtf_string += "\\f0\\fs" + fontsize + eol;
+        //rtf_string += "\\cb" + bc + eol;
+        
+        rtf_string += content + "}" + eol;
+        return rtf_string;
     }
 
     protected String colorToRTF(Color color) {
@@ -64,9 +68,11 @@ public abstract class RTFConverter {
             case '{':
                 return "\\{";
             case '\n':
-                return "{\\line}";
+                return "\\par"+eol;
+            case '\r':
+                return "\\par"+eol;
             case '\t':
-                return "{\\tab}";
+                return "\\tab";
             case ' ':
                 return " ";
             default:

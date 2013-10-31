@@ -6,9 +6,9 @@ import javax.swing.event.ChangeListener;
 
 public class SpinnerFontModel implements SpinnerModel {
 
-    private Integer DEFAULT_VALUE = 10;
-    private Integer MAX_VALUE = 40;
-    private Integer MIN_VALUE = 6;
+    private final Integer DEFAULT_VALUE = 10;
+    private final Integer MAX_VALUE = 40;
+    private final Integer MIN_VALUE = 6;
     private Integer value = DEFAULT_VALUE;
     private ChangeListener listener;
 

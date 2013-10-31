@@ -8,9 +8,9 @@ public class SwapCurrentProfileRTFConverter extends RTFConverter {
 
     @Override
     public String convertContentToRTF(JEditorPane pane) {
-        String rtftext = null;
         String current = EditorProfileManager.getDefault().getCurrentFontAndColorsProfile();
         String currentCopyPaste = CurrentCopyPasteProfile.getCurrentCopyPasteProfile();
+        
         RTFConverter rtfConverter;
         if (CurrentCopyPasteProfile.getCurrentCopyPasteOption().equals("HIGHTLIGHTS")) {
             rtfConverter = new CurrentProfileRTFConverter();
@@ -19,12 +19,13 @@ public class SwapCurrentProfileRTFConverter extends RTFConverter {
         }
 
         if (current.equals(currentCopyPaste)) {
-            rtftext = rtfConverter.convertContentToRTF(pane);
+            String rtftext = rtfConverter.convertContentToRTF(pane);
+            return rtftext;
         } else {
             EditorProfileManager.getDefault().setCurrentFontAndColorProfile(currentCopyPaste);
-            rtftext = rtfConverter.convertContentToRTF(pane);
+            String rtftext = rtfConverter.convertContentToRTF(pane);
             EditorProfileManager.getDefault().setCurrentFontAndColorProfile(current);
+            return rtftext;
         }
-        return rtftext;
     }
 }

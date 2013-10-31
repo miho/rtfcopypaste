@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.io.ByteArrayInputStream;
 import javax.swing.JEditorPane;
 import org.netbeans.modules.rtfcopypaste.RTFTransferable;
+import org.netbeans.modules.rtfcopypaste.converters.RTFConverter;
 import org.netbeans.modules.rtfcopypaste.converters.SwapCurrentProfileRTFConverter;
 import org.openide.cookies.EditorCookie;
 import org.openide.util.Utilities;
@@ -21,11 +22,10 @@ public class DefaultRTFCopyPasteAction extends RTFCopyPasteAction {
                 Utilities.actionsGlobalContext().lookup(EditorCookie.class);
         if (editorCookie != null) {
             for (final JEditorPane pane : editorCookie.getOpenedPanes()) {
-                if (pane != null && pane.isShowing() &&
-                        pane.getSelectionEnd() > pane.getSelectionStart()) {
+                if (pane != null && pane.isShowing()) {
                     try {
-                        String formattedText = (new SwapCurrentProfileRTFConverter()).convertContentToRTF(pane);
-                        System.out.println(formattedText);
+                        RTFConverter converter = new SwapCurrentProfileRTFConverter();
+                        String formattedText = converter.convertContentToRTF(pane);
                         setRtfContest(new ByteArrayInputStream(formattedText.getBytes()));
                         return;
                     } catch (final Throwable e) {
