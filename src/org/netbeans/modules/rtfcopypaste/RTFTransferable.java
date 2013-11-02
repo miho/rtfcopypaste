@@ -8,7 +8,7 @@ import java.io.IOException;
 public class RTFTransferable implements Transferable {
 
     private Object data = null;
-    private DataFlavor flavor = new DataFlavor("text/rtf", "Rich Formatted Text");
+    private final DataFlavor flavor = new DataFlavor("text/rtf", "Rich Text Format");
 
     public RTFTransferable(Object o) {
         this.data = o;

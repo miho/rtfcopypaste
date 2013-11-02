@@ -12,8 +12,6 @@ import javax.swing.text.StyleConstants;
 import org.netbeans.api.editor.mimelookup.MimeLookup;
 import org.netbeans.api.editor.mimelookup.MimePath;
 import org.netbeans.api.editor.settings.FontColorSettings;
-import org.netbeans.api.lexer.TokenHierarchy;
-import org.netbeans.api.lexer.TokenSequence;
 import org.netbeans.editor.Coloring;
 import org.netbeans.modules.editor.lib2.highlighting.HighlightingManager;
 import org.netbeans.spi.editor.highlighting.HighlightsContainer;
@@ -27,7 +25,6 @@ public class CurrentProfileRTFConverter extends RTFConverter {
     private int prev_font_style = Font.PLAIN;
     private Color prev_font_color = Color.BLACK;
     private Color default_fcolor = Color.BLACK;
-    private Color default_bcolor = Color.WHITE;
     private String rtfContentTmp = "";
     
     private String processColorToken(Color color) {

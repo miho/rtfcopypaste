@@ -1,12 +1,16 @@
 package org.netbeans.modules.rtfcopypaste.action;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.io.ByteArrayInputStream;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import org.netbeans.modules.rtfcopypaste.RTFTransferable;
 import org.netbeans.modules.rtfcopypaste.converters.RTFConverter;
 import org.netbeans.modules.rtfcopypaste.converters.SwapCurrentProfileRTFConverter;
 import org.openide.cookies.EditorCookie;
+import org.openide.util.ImageUtilities;
 import org.openide.util.Utilities;
 
 public class DefaultRTFCopyPasteAction extends RTFCopyPasteAction {
@@ -34,5 +38,10 @@ public class DefaultRTFCopyPasteAction extends RTFCopyPasteAction {
                 }
             }
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("xxx");
     }
 }
