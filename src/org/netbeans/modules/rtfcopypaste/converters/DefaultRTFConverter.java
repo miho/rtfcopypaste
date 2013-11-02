@@ -33,7 +33,7 @@ public class DefaultRTFConverter extends RTFConverter {
 
     private String createColorTable(JEditorPane pane, FontColorSettings fcs) {
 
-        final TokenSequence ts = TokenHierarchy.get(pane.getDocument()).
+        final TokenSequence<?> ts = TokenHierarchy.get(pane.getDocument()).
                 tokenSequence();
         final StringBuilder sb = new StringBuilder();
         Color foreground = (Color) fcs.getTokenFontColors("default").getAttribute(StyleConstants.Foreground);
@@ -41,7 +41,7 @@ public class DefaultRTFConverter extends RTFConverter {
         ts.move(pane.getSelectionStart());
 
         while (ts.moveNext() && ts.offset() < pane.getSelectionEnd()) {
-            Token token = ts.token();
+            Token<?> token = ts.token();
             String ID = token.id().primaryCategory();
             AttributeSet as = fcs.getTokenFontColors(ID);
 
@@ -56,7 +56,7 @@ public class DefaultRTFConverter extends RTFConverter {
         return "{\\colortbl;" + sb.toString() + "}";
     }
 
-    private void processToken(final Token token,
+    private void processToken(final Token<?> token,
             final FontColorSettings fcs,
             final StringBuilder sb) {
         String tokenrtf = getRtfContent(token.text().toString());
@@ -94,7 +94,7 @@ public class DefaultRTFConverter extends RTFConverter {
 
         String colortable = createColorTable(pane, fcs);
         String fonttable = createFontTable(pane);
-        final TokenSequence ts = TokenHierarchy.get(pane.getDocument()).
+        final TokenSequence<?> ts = TokenHierarchy.get(pane.getDocument()).
                 tokenSequence();
         final StringBuilder sb = new StringBuilder();
 
