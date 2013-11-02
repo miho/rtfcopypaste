@@ -110,7 +110,7 @@ final class CopyPasteOptionsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,11 +140,11 @@ final class CopyPasteOptionsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     void load() {
-        String current = EditorProfileManager.getDefault().getCurrentFontAndColorsProfile();
+//        String current = EditorProfileManager.getDefault().getCurrentFontAndColorsProfile();
         Set<String> profiles = EditorProfileManager.getDefault().getFontAndColorsProfiles();
         jComboBox1.setModel(new DefaultComboBoxModel(profiles.toArray()));
         String currentCopyPaste = CurrentCopyPasteProfile.getCurrentCopyPasteProfile();
-        Integer currentFontSize = CurrentCopyPasteProfile.getCurrentCopyPasteFontSize();
+//        Integer currentFontSize = CurrentCopyPasteProfile.getCurrentCopyPasteFontSize();
 
         for (int i = 0; i < jComboBox1.getModel().getSize(); i++) {
             String item = (String) jComboBox1.getModel().getElementAt(i);

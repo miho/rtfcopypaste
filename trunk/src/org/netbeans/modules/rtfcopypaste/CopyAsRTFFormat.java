@@ -51,8 +51,8 @@ public final class CopyAsRTFFormat extends CookieAction {
     }
 
     @Override
-    protected final Class[] cookieClasses() {
-        return new Class[]{
+    protected final Class<?>[] cookieClasses() {
+        return new Class<?>[]{
                     EditorCookie.class
                 };
     }
